@@ -1,14 +1,14 @@
 // @DISABLE_SWAPS
 #include <stdio.h>
-#include <setjmp.h>
-#include <assert.h>
 #include <stdlib.h>
 #include "queue_list.h"
-#include "scheduler.h"
-#include "kernel.h"
 
 // Create an entry for every possible task.  We recycle these entries
 // as a task cannot appear in more than one queue at any time
+#define MAX_TASKS 10
+#define NO_TASK -1
+#define TRUE 1
+#define FALSE 0
 Node tasks[MAX_TASKS];
 
 Node* getNode(tid_t tid) {
