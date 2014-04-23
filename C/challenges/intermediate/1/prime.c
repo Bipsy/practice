@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define UPPER_BOUND 10000000
+#define UPPER_BOUND 1000
 #define NUM_THREADS 10
 #define BUF_SIZE 10
 
