@@ -1,0 +1,265 @@
+Flat profile:
+
+Each sample counts as 0.01 seconds.
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls  ns/call  ns/call  name    
+ 16.71      0.01     0.01  1000001    10.03    60.17  parse
+ 16.71      0.02     0.01  1000000    10.03    10.03  findAccount
+ 16.71      0.03     0.01  1000000    10.03    10.03  hash
+ 16.71      0.04     0.01   667231    15.03    35.08  depositMap
+ 16.71      0.05     0.01   166611    60.19    70.22  withdrawList
+ 16.71      0.06     0.01   166158    60.35    70.38  feeList
+  0.00      0.06     0.00  1000000     0.00    10.03  findList
+  0.00      0.06     0.00   667231     0.00    10.03  depositList
+  0.00      0.06     0.00   667030     0.00     0.00  depositNode
+  0.00      0.06     0.00   166611     0.00    80.24  withdrawMap
+  0.00      0.06     0.00   166561     0.00     0.00  withdrawNode
+  0.00      0.06     0.00   166158     0.00    80.41  feeMap
+  0.00      0.06     0.00   166094     0.00     0.00  feeNode
+  0.00      0.06     0.00      201     0.00     0.00  createNode
+  0.00      0.06     0.00      201     0.00     0.00  destroyNode
+  0.00      0.06     0.00      201     0.00     0.00  makeAccount
+  0.00      0.06     0.00       10     0.00     0.00  createList
+  0.00      0.06     0.00       10     0.00     0.00  destroyList
+  0.00      0.06     0.00       10     0.00     0.00  printList
+  0.00      0.06     0.00        1     0.00     0.00  createMap
+  0.00      0.06     0.00        1     0.00     0.00  destroyMap
+  0.00      0.06     0.00        1     0.00     0.00  printMap
+
+ %         the percentage of the total running time of the
+time       program used by this function.
+
+cumulative a running sum of the number of seconds accounted
+ seconds   for by this function and those listed above it.
+
+ self      the number of seconds accounted for by this
+seconds    function alone.  This is the major sort for this
+           listing.
+
+calls      the number of times this function was invoked, if
+           this function is profiled, else blank.
+ 
+ self      the average number of milliseconds spent in this
+ms/call    function per call, if this function is profiled,
+	   else blank.
+
+ total     the average number of milliseconds spent in this
+ms/call    function and its descendents per call, if this 
+	   function is profiled, else blank.
+
+name       the name of the function.  This is the minor sort
+           for this listing. The index shows the location of
+	   the function in the gprof listing. If the index is
+	   in parenthesis it shows where it would appear in
+	   the gprof listing if it were to be printed.
+
+Copyright (C) 2012 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+		     Call graph (explanation follows)
+
+
+granularity: each sample hit covers 2 byte(s) for 16.62% of 0.06 seconds
+
+index % time    self  children    called     name
+                0.01    0.05 1000001/1000001     main [2]
+[1]    100.0    0.01    0.05 1000001         parse [1]
+                0.01    0.01  667231/667231      depositMap [3]
+                0.00    0.01  166611/166611      withdrawMap [4]
+                0.00    0.01  166158/166158      feeMap [5]
+                0.00    0.00       1/1           printMap [23]
+-----------------------------------------------
+                                                 <spontaneous>
+[2]    100.0    0.00    0.06                 main [2]
+                0.01    0.05 1000001/1000001     parse [1]
+                0.00    0.00       1/1           createMap [21]
+                0.00    0.00       1/1           destroyMap [22]
+-----------------------------------------------
+                0.01    0.01  667231/667231      parse [1]
+[3]     38.9    0.01    0.01  667231         depositMap [3]
+                0.00    0.01  667231/1000000     findList [9]
+                0.00    0.01  667231/667231      depositList [11]
+-----------------------------------------------
+                0.00    0.01  166611/166611      parse [1]
+[4]     22.2    0.00    0.01  166611         withdrawMap [4]
+                0.01    0.00  166611/166611      withdrawList [6]
+                0.00    0.00  166611/1000000     findList [9]
+-----------------------------------------------
+                0.00    0.01  166158/166158      parse [1]
+[5]     22.2    0.00    0.01  166158         feeMap [5]
+                0.01    0.00  166158/166158      feeList [7]
+                0.00    0.00  166158/1000000     findList [9]
+-----------------------------------------------
+                0.01    0.00  166611/166611      withdrawMap [4]
+[6]     19.4    0.01    0.00  166611         withdrawList [6]
+                0.00    0.00  166611/1000000     findAccount [8]
+                0.00    0.00  166561/166561      withdrawNode [13]
+-----------------------------------------------
+                0.01    0.00  166158/166158      feeMap [5]
+[7]     19.4    0.01    0.00  166158         feeList [7]
+                0.00    0.00  166158/1000000     findAccount [8]
+                0.00    0.00  166094/166094      feeNode [14]
+-----------------------------------------------
+                0.00    0.00  166158/1000000     feeList [7]
+                0.00    0.00  166611/1000000     withdrawList [6]
+                0.01    0.00  667231/1000000     depositList [11]
+[8]     16.7    0.01    0.00 1000000         findAccount [8]
+-----------------------------------------------
+                0.00    0.00  166158/1000000     feeMap [5]
+                0.00    0.00  166611/1000000     withdrawMap [4]
+                0.00    0.01  667231/1000000     depositMap [3]
+[9]     16.7    0.00    0.01 1000000         findList [9]
+                0.01    0.00 1000000/1000000     hash [10]
+                0.00    0.00      10/10          createList [18]
+-----------------------------------------------
+                0.01    0.00 1000000/1000000     findList [9]
+[10]    16.7    0.01    0.00 1000000         hash [10]
+-----------------------------------------------
+                0.00    0.01  667231/667231      depositMap [3]
+[11]    11.1    0.00    0.01  667231         depositList [11]
+                0.01    0.00  667231/1000000     findAccount [8]
+                0.00    0.00  667030/667030      depositNode [12]
+                0.00    0.00     201/201         makeAccount [17]
+-----------------------------------------------
+                0.00    0.00  667030/667030      depositList [11]
+[12]     0.0    0.00    0.00  667030         depositNode [12]
+-----------------------------------------------
+                0.00    0.00  166561/166561      withdrawList [6]
+[13]     0.0    0.00    0.00  166561         withdrawNode [13]
+-----------------------------------------------
+                0.00    0.00  166094/166094      feeList [7]
+[14]     0.0    0.00    0.00  166094         feeNode [14]
+-----------------------------------------------
+                0.00    0.00     201/201         makeAccount [17]
+[15]     0.0    0.00    0.00     201         createNode [15]
+-----------------------------------------------
+                0.00    0.00     201/201         destroyList [19]
+[16]     0.0    0.00    0.00     201         destroyNode [16]
+-----------------------------------------------
+                0.00    0.00     201/201         depositList [11]
+[17]     0.0    0.00    0.00     201         makeAccount [17]
+                0.00    0.00     201/201         createNode [15]
+-----------------------------------------------
+                0.00    0.00      10/10          findList [9]
+[18]     0.0    0.00    0.00      10         createList [18]
+-----------------------------------------------
+                0.00    0.00      10/10          destroyMap [22]
+[19]     0.0    0.00    0.00      10         destroyList [19]
+                0.00    0.00     201/201         destroyNode [16]
+-----------------------------------------------
+                0.00    0.00      10/10          printMap [23]
+[20]     0.0    0.00    0.00      10         printList [20]
+-----------------------------------------------
+                0.00    0.00       1/1           main [2]
+[21]     0.0    0.00    0.00       1         createMap [21]
+-----------------------------------------------
+                0.00    0.00       1/1           main [2]
+[22]     0.0    0.00    0.00       1         destroyMap [22]
+                0.00    0.00      10/10          destroyList [19]
+-----------------------------------------------
+                0.00    0.00       1/1           parse [1]
+[23]     0.0    0.00    0.00       1         printMap [23]
+                0.00    0.00      10/10          printList [20]
+-----------------------------------------------
+
+ This table describes the call tree of the program, and was sorted by
+ the total amount of time spent in each function and its children.
+
+ Each entry in this table consists of several lines.  The line with the
+ index number at the left hand margin lists the current function.
+ The lines above it list the functions that called this function,
+ and the lines below it list the functions this one called.
+ This line lists:
+     index	A unique number given to each element of the table.
+		Index numbers are sorted numerically.
+		The index number is printed next to every function name so
+		it is easier to look up where the function is in the table.
+
+     % time	This is the percentage of the `total' time that was spent
+		in this function and its children.  Note that due to
+		different viewpoints, functions excluded by options, etc,
+		these numbers will NOT add up to 100%.
+
+     self	This is the total amount of time spent in this function.
+
+     children	This is the total amount of time propagated into this
+		function by its children.
+
+     called	This is the number of times the function was called.
+		If the function called itself recursively, the number
+		only includes non-recursive calls, and is followed by
+		a `+' and the number of recursive calls.
+
+     name	The name of the current function.  The index number is
+		printed after it.  If the function is a member of a
+		cycle, the cycle number is printed between the
+		function's name and the index number.
+
+
+ For the function's parents, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the function into this parent.
+
+     children	This is the amount of time that was propagated from
+		the function's children into this parent.
+
+     called	This is the number of times this parent called the
+		function `/' the total number of times the function
+		was called.  Recursive calls to the function are not
+		included in the number after the `/'.
+
+     name	This is the name of the parent.  The parent's index
+		number is printed after it.  If the parent is a
+		member of a cycle, the cycle number is printed between
+		the name and the index number.
+
+ If the parents of the function cannot be determined, the word
+ `<spontaneous>' is printed in the `name' field, and all the other
+ fields are blank.
+
+ For the function's children, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the child into the function.
+
+     children	This is the amount of time that was propagated from the
+		child's children to the function.
+
+     called	This is the number of times the function called
+		this child `/' the total number of times the child
+		was called.  Recursive calls by the child are not
+		listed in the number after the `/'.
+
+     name	This is the name of the child.  The child's index
+		number is printed after it.  If the child is a
+		member of a cycle, the cycle number is printed
+		between the name and the index number.
+
+ If there are any cycles (circles) in the call graph, there is an
+ entry for the cycle-as-a-whole.  This entry shows who called the
+ cycle (as parents) and the members of the cycle (as children.)
+ The `+' recursive calls entry shows the number of function calls that
+ were internal to the cycle, and the calls entry for each member shows,
+ for that member, how many times it was called from other members of
+ the cycle.
+
+Copyright (C) 2012 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+Index by function name
+
+  [18] createList             [16] destroyNode             [1] parse
+  [21] createMap               [7] feeList                [20] printList
+  [15] createNode              [5] feeMap                 [23] printMap
+  [11] depositList            [14] feeNode                 [6] withdrawList
+   [3] depositMap              [8] findAccount             [4] withdrawMap
+  [12] depositNode             [9] findList               [13] withdrawNode
+  [19] destroyList            [10] hash
+  [22] destroyMap             [17] makeAccount
