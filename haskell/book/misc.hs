@@ -1,3 +1,5 @@
+import Data.List
+
 cons8 :: [Int] -> [Int]
 cons8 numbers = 8:numbers
 
@@ -65,12 +67,12 @@ addition a 0 = a
 addition 0 a = a
 addition a b = addition (plusOne a) (b-1)
 
-replicate :: Int -> a -> [a]
-replicate 0 _ = []
-replicate count element = replicate' count element []
+replicate' :: Int -> a -> [a]
+replicate' 0 _ = []
+replicate' count element = replicate'' count element []
 	where
-		replicate' 0 _ result = result
-		replicate' count element result = replicate' (count-1) element (element:result)
+		replicate'' 0 _ result = result
+		replicate'' count element result = replicate'' (count-1) element (element:result)
 
 indexOf :: [a] -> Int -> a
 indexOf [] _ = error "Index out of bound"
@@ -112,3 +114,64 @@ scanSum list = scanSum' list 0
 diffs :: [Int] -> [Int]
 diffs (x:y:ys) = (y-x):diffs (y:ys)
 diffs _ = []
+
+listNegator :: [Int] -> [Int]
+listNegator = map listNegator'
+	where
+		listNegator' a = (-a)
+
+divisors :: [Int] -> [[Int]]
+divisors = map divisors'
+	where
+		divisors' p = [f | f <- [1..p], p `mod` f == 0 ]
+
+negateDivisors :: [Int] -> [[Int]]
+negateDivisors = (map listNegator) . divisors
+
+rle :: [Char] -> [(Int, Char)]
+rle [] = []
+rle (x:xs) = rle' xs x 1
+	where 
+		rle' [] last count = [(count, last)]
+		rle' (x:xs) last count = if x == last
+									then rle' xs last (count+1)
+									else (count, last):rle' xs x 1
+
+
+rle' :: [Char] -> [(Int, Char)]
+rle' = (map countToTuple) . group
+	where
+		countToTuple (x:xs) = (length (x:xs), x) 
+
+echoesr :: [Int] -> [Int]
+echoesr = foldr (\ x xs -> (replicate x x) ++ xs) []
+
+echoesl :: [Int] -> [Int]
+echoesl = foldl (\ xs x -> xs ++ (replicate x x)) []
+
+andr :: [Bool] -> Bool
+andr [] = True
+andr (x:xs) = x && andr xs
+
+andl :: [Bool] -> Bool
+andl [] = True
+andl bools =  andl' bools True
+	where
+		andl' [] acc = acc
+		andl' (x:xs) acc = andl' xs (x && acc)
+
+
+andFoldl :: [Bool] -> Bool
+andFoldl = foldl (&&) True
+
+andFoldr :: [Bool] -> Bool
+andFoldr = foldr (&&) True
+
+maximum :: (Ord a) => [a] -> a
+maximum = foldr1 max
+
+minimum :: (Ord a) => [a] -> a
+minimum = foldl1 min
+
+retainEven :: [Int] -> [Int]
+retainEven = filter (\ x -> ((mod x 2) == 0))
