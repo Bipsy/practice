@@ -1,0 +1,10 @@
+[package]
+
+name = "hello_world"
+version = "0.0.1"
+authors = [ "Peter Anderson <anderson.peter@byu.edu>" ]
+
+[[bin]]
+
+name = "hello_world"
+
