@@ -19,7 +19,7 @@ auto Hangman::getSecretWord() {
     for (int i = 0; i < len; i++) {
         current_progress += '_';
     }
-    for (int i = 0; i < 100; i++) {
+    for (int i = 0; i < 101; i++) {
         std::cout << std::endl;
     }
     return std::tuple<std::string, std::string>(input, current_progress);
