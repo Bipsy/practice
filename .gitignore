@@ -3,3 +3,4 @@
 *~
 *.out
 os345
+**/*.DS_Store
